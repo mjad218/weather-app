@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    background: #fafafa;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+
+}
+
+#app{
+    display: grid;
+    grid-auto-rows: minmax(100px, auto);
+    max-height: 100vh;
+    width: 500px;
+    background: #23e2bd;
+    color: #f8f8f8;
+    justify-content: center;
+    grid-gap: 1em;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+/* .holder{
+
+} */
+
+.entry{
+    background: #47efce38;
+    font-family: 'Oswald', sans-serif;
+    border: 1px solid #a0e4d7;
+    height: 80px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    width: 100%;
+}
+
+/* #entryHolder{
+
+}
+
+#date{
+
+}
+
+#temp{
+
+}
+
+#content{
+
+}
+
+.headline {
+
+}
+.title{
+
+} */
+
+/*  Basic Styling To Override Default For Basic HTML Elements */
+label{
+    display:block;
+}
+
+input{
+    display:block;
+    background: #47efce38;
+    font-family: 'Oswald', sans-serif;
+    border: 1px solid #a0e4d7;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    width: 100%;
+}
+
+button{
+    background: #47efce38;
+    font-family: 'Oswald', sans-serif;
+    border: 1px solid #a0e4d7;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    color: #fff;
+
+}
+h1{
+    font-size: 36px;
+}
+
+textarea{
+    background: #47efce38;
+    font-family: 'Oswald', sans-serif;
+    border: 1px solid #a0e4d7;
+    height: 80px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    width: 100%;
+}
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+/* Style for Placeholder Text*/
+::placeholder { /* Firefox, Chrome, Opera */ 
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+
+} 
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+
+} 
+  
+::-ms-input-placeholder { /* Microsoft Edge */ 
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+
+} 
