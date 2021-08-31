@@ -23,9 +23,9 @@ let displayData = () => {
         let content = document.getElementById("content"); 
         let temp = document.getElementById("temp"); 
 
-        temp.textContent = "Your city's temperature is " + res[res.length - 1].Temperature; 
-        content.textContent = "And your are feeling : " + res[res.length - 1].Feeling; 
-        puplishDate.textContent = "Requested on " + res[res.length - 1].PublishDate; 
+        temp.textContent = "Your city's temperature is " + res.Temperature + " °C"; 
+        content.textContent = "And your are feeling : " + res.Feeling; 
+        puplishDate.textContent = "Requested on " + res.PublishDate; 
     } ) 
     .catch ( (e) => {console.log(e)} ) ;
 }
@@ -59,12 +59,14 @@ let postData = async (res , feeling) => {
 const generateData = async () => {
 
     const zipCode = zip.value; 
-    const APIURL = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}` ;
+    const APIURL = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&units=metric&appid=${apiKey}` ;
     await fetch(APIURL)
     .then( (response) => {
         return response.json(); 
     })
     .then((response) => {
+        console.log(response); 
+
         postData(response,feelings.value);
         })
     .catch( (e) => {

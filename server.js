@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.static("website"));
 const PORT = 3000 ; 
 
-const data = [] ; 
+const projectData = {} ; 
 
 const listening = () => {
     console.log("Server is working \n"); 
@@ -21,18 +21,18 @@ const server = app.listen( PORT , listening);
 
 app.get( "/data" , (req , res) =>{
 
-    res.send(data); 
+    res.send(projectData); 
 }); 
 
 app.post( "/data" , (req , res) =>{
 
-    data.push(req.body);
-    console.log(data); 
+    Object.assign(projectData, req.body);
+    console.log(projectData); 
 }); 
 
-app.post( "/" , (req , res) =>{
+// app.post( "/" , (req , res) =>{
 
-    data.push(req.body);
-    console.log(data); 
-}); 
+//     projectData.push(req.body);
+//     console.log(projectData); 
+// }); 
     
