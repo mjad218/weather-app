@@ -9,17 +9,30 @@ app.use(cors());
 app.use(express.static("website"));
 const PORT = 3000 ; 
 
-const listening = () => {
+const data = [] ; 
 
-    console.log("Hey !"); 
+const listening = () => {
+    console.log("Server is working \n"); 
 }
 
 
 const server = app.listen( PORT , listening); 
 
 
-app.get( "/" , (req , res) =>{
+app.get( "/data" , (req , res) =>{
 
-res.send("Hey !"); 
-} ); 
-const apiKey = "5260038d686b4334ff41dfddc7607c1d" ; 
+    res.send(data); 
+}); 
+
+app.post( "/data" , (req , res) =>{
+
+    data.push(req.body);
+    console.log(data); 
+}); 
+
+app.post( "/" , (req , res) =>{
+
+    data.push(req.body);
+    console.log(data); 
+}); 
+    

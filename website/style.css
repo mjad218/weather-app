@@ -33,16 +33,34 @@ body{
 } */
 
 .entry{
-    background: #47efce38;
+    background: #5e827b38;
     font-family: 'Oswald', sans-serif;
     border: 1px solid #a0e4d7;
-    height: 80px;
+    min-height: 80px;
     border-radius: 10px;
     padding: 10px;
     font-size: 15px;
     width: 100%;
+    position: relative;
 }
+.entry .title {
+    font-size: 13px;
+    font-weight: 200;
+    position: absolute;
+    top: 5px;
+    left: 10px;
 
+}
+div#entryHolder {
+    padding-top: 25px;
+}
+div#date {
+    font-size: 13px;
+    font-weight: 200;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
 /* #entryHolder{
 
 }
@@ -80,6 +98,8 @@ input{
     padding: 10px;
     font-size: 15px;
     width: 100%;
+    color: #fff;
+
 }
 
 button{
@@ -106,6 +126,8 @@ textarea{
     padding: 10px;
     font-size: 15px;
     width: 100%;
+    color: #fff;
+
 }
 /* Reset style for HTML element on active to have no border*/
 input:focus,
