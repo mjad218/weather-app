@@ -1,7 +1,6 @@
 const btn = document.getElementById("generate");  
 const zip = document.getElementById("zip");  
 const feelings = document.getElementById("feelings");  
-const apiKey = "5260038d686b4334ff41dfddc7607c1d" ; 
 
 
 let displayData = ( err = 0) => {
@@ -23,17 +22,23 @@ let displayData = ( err = 0) => {
         .then( (res) => {
             // console.log("Data is Ready to be displayed ! ");
             // console.log(res);
-            temp.textContent = "Your city's temperature is " + res.Temperature + " °C"; 
-            content.textContent = "And your are feeling : " + res.Feeling; 
-            puplishDate.textContent = "Requested on " + res.PublishDate; 
+
+            // I have replaced textContent with innerHTML 
+            temp.innerHTML = "Your city's temperature is " + res.Temperature + " °C"; 
+            content.innerHTML = "And your are feeling : " + res.Feeling; 
+            puplishDate.innerHTML = "Requested on " + res.PublishDate; 
         } ) 
         .catch ( (e) => {console.log(e)} ) ;
     
     } else {
 
-        temp.textContent = "City Not Found!! "; 
-        content.textContent = "" ; 
-        puplishDate.textContent = ""; 
+        let error = document.createElement("span");
+        error.classList.add("error");
+        error.appendChild(document.createTextNode("Please verify the zip code")); 
+        zip.parentElement.insertBefore(error , zip);
+        temp.innerHTML = "City Not Found!! "; 
+        content.innerHTML = "" ; 
+        puplishDate.innerHTML = ""; 
 
     }
 }
@@ -41,7 +46,7 @@ let displayData = ( err = 0) => {
 let postData = async (res , feeling) => {
 
     let d = new Date();
-    let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+    let newDate = (d.getMonth() + 1 )+'.'+ d.getDate()+'.'+ d.getFullYear();
 
     const data = {
         Feeling : feeling , 
@@ -67,7 +72,10 @@ let postData = async (res , feeling) => {
 const generateData = async () => {
 
     const zipCode = zip.value; 
-    const APIURL = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&units=metric&appid=${apiKey}` ;
+    const apiKey = "5260038d686b4334ff41dfddc7607c1d" ; 
+
+    // hey i use &units=metric in the variable below, it was here in the last review too ! 
+    const APIURL = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}&units=metric` ;
 
     await fetch(APIURL)
     .then((response) => {

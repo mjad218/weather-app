@@ -61,6 +61,11 @@ div#date {
     top: 5px;
     right: 10px;
 }
+span.error {
+    font-size: 14px;
+    color: #fff;
+    display: block;
+}
 /* #entryHolder{
 
 }
