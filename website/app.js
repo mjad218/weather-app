@@ -73,7 +73,7 @@ const generateData = async () => {
     let errors = document.querySelectorAll(".error");
     errors.forEach( (err) => err.parentElement.removeChild(err) ); 
     const zipCode = zip.value; 
-    const apiKey = "5260038d686b4334ff41dfddc7607c1d" ; 
+    const apiKey = "" ; 
 
     // hey i use &units=metric in the variable below, it was here in the last review too ! 
     const APIURL = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}&units=metric` ;
