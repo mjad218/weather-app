@@ -70,7 +70,8 @@ let postData = async (res , feeling) => {
 
 
 const generateData = async () => {
-
+    let errors = document.querySelectorAll(".error");
+    errors.forEach( (err) => err.parentElement.removeChild(err) ); 
     const zipCode = zip.value; 
     const apiKey = "5260038d686b4334ff41dfddc7607c1d" ; 
 
